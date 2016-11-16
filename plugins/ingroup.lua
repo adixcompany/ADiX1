@@ -121,7 +121,7 @@ local function check_member_modadd(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'Group is added and you have been promoted as the owner ')
+      return send_large_msg(receiver, 'گروه به درجه حداکثر امنیت ازتقا پیدا کرد،کمپانی آدیکس لحظات خوبی را برای شما در فضای مجازی به ارمغان خواهد آورد ')
     end
   end
 end
