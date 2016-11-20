@@ -1280,7 +1280,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "آیدی گروه: "..msg.to.id..
+				return "آیدی گروه: "..msg.to.id
 			end
 		end
 
