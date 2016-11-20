@@ -573,7 +573,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "تنظیمات:\n__________________\nقفل لینک : "..settings.lock_link.."\nقفل فلود: "..settings.flood.."\nحساسیت به اسپم : "..NUM_MSG_MAX.."\nقفل اسپم: "..settings.lock_spam.."\nقفل زبان عربی: "..settings.lock_arabic.."\nقفل عضوگیری: "..settings.lock_member.."\nقفل RTL: "..settings.lock_rtl.."\nقفل Tgservice : "..settings.lock_tgservice.."\nقفل استیکر: "..settings.lock_sticker.."\nوضعیت عمومی گروه: "..settings.public.."\nفعالیت فشرده ربات: "..settings.strict.."\nعمل آنتی اسپم: ban\nحالت گروه: SuperGroup\nزبان ربات: fa\n__________________\nنسخه ربات: 1"
+  local text = "⚡️تنظیمات:\n__________________\nقفل لینک : "..settings.lock_link.."\nقفل فلود: "..settings.flood.."\nحساسیت به اسپم : "..NUM_MSG_MAX.."\nقفل اسپم: "..settings.lock_spam.."\nقفل زبان عربی: "..settings.lock_arabic.."\nقفل عضوگیری: "..settings.lock_member.."\nقفل RTL: "..settings.lock_rtl.."\nقفل Tgservice : "..settings.lock_tgservice.."\nقفل استیکر: "..settings.lock_sticker.."\nوضعیت عمومی گروه: "..settings.public.."\nفعالیت فشرده ربات: "..settings.strict.."\nعمل آنتی اسپم: ban\nحالت گروه: SuperGroup\nزبان ربات: fa\n__________________\nنسخه ربات: 1"
   return text
 end
 
@@ -1280,7 +1280,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "..msg.to.id.."
+				return "آیدی گروه: "..msg.to.id.."
 			end
 		end
 
@@ -1328,7 +1328,7 @@ local function run(msg, matches)
 			end
 			local group_link = data[tostring(msg.to.id)]['settings']['set_link']
 			if not group_link then
-				return "اول لینک جدید بسازید!/nبا دستور !newlink لینک جدید بسازید\nدر صورت تمایل به ثبت لینک خود از دستور !setlink استفاده کنید"
+				return "اول لینک جدید بسازید!\nبا دستور !newlink لینک جدید بسازید\nدر صورت تمایل به ثبت لینک خود از دستور !setlink استفاده کنید"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
 			return "link: "..group_link
