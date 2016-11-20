@@ -9,7 +9,7 @@ local function check_member_super(cb_extra, success, result)
     return reply_msg(msg.id, '[Not supported] This is a old message!', ok_cb, false)
   end
   if success == 0 then
-	send_large_msg(receiver, "Promote me to admin first!")
+	send_large_msg(receiver, "اول باید جز مدیران بشم!!")
   end
   for k,v in pairs(result) do
     local member_id = v.peer_id
@@ -43,7 +43,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been added!'
+	  local text = 'گروه اضافه و به لیست گروه های آدیکس1 اضافه شد!'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -71,7 +71,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been removed'
+	  local text = 'گروه پاک شد!'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -122,10 +122,10 @@ end
 
 --Get and output info about supergroup
 local function callback_info(cb_extra, success, result)
-local title ="Info for SuperGroup: ["..result.title.."]\n\n"
-local admin_num = "Admin count: "..result.admins_count.."\n"
-local user_num = "User count: "..result.participants_count.."\n"
-local kicked_num = "Kicked user count: "..result.kicked_count.."\n"
+local title ="اطلاعات گروه: ["..result.title.."]\n\n"
+local admin_num = "مدیران: "..result.admins_count.."\n"
+local user_num = "کاربران: "..result.participants_count.."\n"
+local kicked_num = "حذف شده: "..result.kicked_count.."\n"
 local channel_id = "ID: "..result.peer_id.."\n"
 if result.username then
 	channel_username = "Username: @"..result.username
@@ -138,7 +138,7 @@ end
 
 --Get and output members of supergroup
 local function callback_who(cb_extra, success, result)
-local text = "Members for "..cb_extra.receiver
+local text = "اعضا برای "..cb_extra.receiver
 local i = 1
 for k,v in pairsByKeys(result) do
 if not v.print_name then
@@ -197,11 +197,11 @@ local function lock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'yes' then
-    return 'Link posting is already locked'
+    return 'قفل شد'
   else
     data[tostring(target)]['settings']['lock_link'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'Link posting has been locked'
+    return 'قفل شد'
   end
 end
 
@@ -211,11 +211,11 @@ local function unlock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'no' then
-    return 'Link posting is not locked'
+    return 'قفل نیست'
   else
     data[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'Link posting has been unlocked'
+    return 'آزاد شد'
   end
 end
 
@@ -224,7 +224,7 @@ local function lock_group_spam(msg, data, target)
     return
   end
   if not is_owner(msg) then
-    return "Owners only!"
+    return "فقط مدیران!"
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'yes' then
@@ -573,7 +573,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "SuperGroup settings:\nLock links : "..settings.lock_link.."\nLock flood: "..settings.flood.."\nFlood sensitivity : "..NUM_MSG_MAX.."\nLock spam: "..settings.lock_spam.."\nLock Arabic: "..settings.lock_arabic.."\nLock Member: "..settings.lock_member.."\nLock RTL: "..settings.lock_rtl.."\nLock Tgservice : "..settings.lock_tgservice.."\nLock sticker: "..settings.lock_sticker.."\nPublic: "..settings.public.."\nStrict settings: "..settings.strict
+  local text = "تنظیمات:\nقفل لینک : "..settings.lock_link.."\nقفل فلود: "..settings.flood.."\nحساسیت به اسپم : "..NUM_MSG_MAX.."\nقفل اسپم: "..settings.lock_spam.."\nقفل زبان عربی: "..settings.lock_arabic.."\nقفل عضوگیری: "..settings.lock_member.."\nقفل RTL: "..settings.lock_rtl.."\nقفل Tgservice : "..settings.lock_tgservice.."\nقفل استیکر: "..settings.lock_sticker.."\nوضعیت گروه: "..settings.public.."\nفعالیت فشرده ربات: "..settings.strict
   return text
 end
 
