@@ -236,7 +236,6 @@ function create_config( )
 	"fal",
 	"font",
 	"info",
-	"pass",
 	"plugins",
 	"rank",
 	"s2ph",
@@ -344,7 +343,7 @@ This command will send text to [group_id]
     help_text = [[
 ]],
 	help_text_super =[[
-SuperGroup Commands:
+⚡️ ADiX1 Commands:
 
 !info
 Displays general info about the SuperGroup
@@ -475,15 +474,16 @@ Returns users name and id by username
 Returns group logs
 *Search for kick reasons using [#RTL|#spam|#lockmember]
 
-**You can use "#", "!", or "/" to begin all commands
+⚡️**You can use "#", "!", or "/" to begin all commands
 
-*Only owner can add members to SuperGroup
+⚡️*Only owner can add members to SuperGroup
 (use invite link to invite)
 
-*Only moderators and owner can use block, ban, unban, newlink, link, setphoto, setname, lock, unlock, setrules, setabout and settings commands
+⚡️*Only moderators and owner can use block, ban, unban, newlink, link, setphoto, setname, lock, unlock, setrules, setabout and settings commands
 
-*Only owner can use res, setowner, promote, demote, and log commands
+⚡️*Only owner can use res, setowner, promote, demote, and log commands
 
+⚡️Support: @ADiXsbot
 ]],
   }
   serialize_to_file(config, './data/config.lua')
