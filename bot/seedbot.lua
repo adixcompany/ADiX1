@@ -241,7 +241,8 @@ function create_config( )
 	"s2ph",
 	"sendplugin",
 	"sticker",
-	"weather"
+	"weather",
+	"cpu"
     },
     sudo_users = {226726601,206097989},--Sudo users
     moderation = {data = 'data/moderation.json'},
