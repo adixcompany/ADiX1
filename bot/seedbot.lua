@@ -242,7 +242,7 @@ function create_config( )
 	"sendplugin",
 	"sticker",
 	"weather",
-	"cpu"
+	"cpu",
     },
     sudo_users = {226726601,206097989},--Sudo users
     moderation = {data = 'data/moderation.json'},
